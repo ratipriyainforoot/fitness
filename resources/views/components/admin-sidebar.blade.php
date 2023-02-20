@@ -17,7 +17,7 @@
         </a>
         <ul id="projects-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{route('all-banner')}}">
               <i class="bi bi-circle"></i><span>All Banner</span>
             </a>
           </li>
@@ -36,12 +36,12 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{route('all-category')}}">
               <i class="bi bi-circle"></i><span>All Categories</span>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('add-category')}}">
               <i class="bi bi-circle"></i><span>Add Category</span>
             </a>
           </li>
@@ -55,12 +55,12 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{route('all-products')}}">
               <i class="bi bi-circle"></i><span>All Products</span>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('add-product')}}">
               <i class="bi bi-circle"></i><span>Add Products</span>
             </a>
           </li>

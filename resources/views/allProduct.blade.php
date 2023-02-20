@@ -7,11 +7,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>All Banner</h1>
+      <h1>All Products</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-          <li class="breadcrumb-item active">All Banner</li>
+          <li class="breadcrumb-item active">All Products</li>
         </ol>
       </nav>
     </div>
@@ -35,7 +35,12 @@
                                   <img src="{{asset($banner->image)}}" alt="Profile" class="bannerImage">
                               </td>
                               <td>
-                                  {{$banner->title}}
+                                  Vegan Diet
+                                  <p class="text-secondary">Weight Loss</p>
+                                  <p>
+                                    <span class="badge bg-primary">Protein: 200g</span>
+                                    <span class="badge bg-primary">Sugar: 10g</span>
+                                  </p>
                               </td>
                               <td>
                                   <button data-bs-toggle="modal" data-bs-target="#viewBanner{{$banner->id}}" class="btn btn-sm btn-primary" title="View Banner">

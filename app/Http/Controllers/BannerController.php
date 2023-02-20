@@ -42,4 +42,35 @@ class BannerController extends Controller
             ->with('error','Please login first');
         }
     }
+
+    public function editBanner(Request $request) {
+        $id = $request->id;
+        $title = $request->title;
+        if($request->file('banner') != null) {
+            $banner = $request->file('banner');
+            $bannerName = time().$banner->getClientOriginalName();
+            $banner = $banner->move('banner',$bannerName);
+            Banner::where('id',$id)->update(
+                [
+                    'title' => $title,
+                    'image' => $banner
+                ]
+            );
+        }else {
+            Banner::where('id',$id)->update(
+                [
+                    'title' => $title
+                ]
+            );
+        }
+        return redirect()->route('all-banner')
+            ->with('success','Banner upated');
+    }
+
+    public function deleteBanner(Request $request) {
+        $id = $request->id;
+        Banner::where('id',$id)->delete();
+        return redirect()->route('all-banner')
+            ->with('success','Deleted');
+    }
 }

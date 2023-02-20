@@ -7,11 +7,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>All Banner</h1>
+      <h1>All Categories</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-          <li class="breadcrumb-item active">All Banner</li>
+          <li class="breadcrumb-item active">All Categories</li>
         </ol>
       </nav>
     </div>
@@ -21,43 +21,43 @@
         <div class="card p-4">
           <div class="card-body">
             <!-- All Employee Table -->
-                    @if($banners->count() > 0)
+            @if($categories->count() > 0)
                     <div class="table-responsive">
                       <table class="table table-bordered text-center">
                         <tr>
-                          <th>Banner</th>
                           <th>Title</th>
+                          <th>Title(arabic)</th>
                           <th>Action</th>
                         </tr>
-                        @foreach($banners as $banner)
+                        @foreach($categories as $category)
                           <tr>
                               <td>
-                                  <img src="{{asset($banner->image)}}" alt="Profile" class="bannerImage">
+                                {{$category->title}}
                               </td>
                               <td>
-                                  {{$banner->title}}
+                                  {{$category->title_ar}}
                               </td>
                               <td>
-                                  <button data-bs-toggle="modal" data-bs-target="#viewBanner{{$banner->id}}" class="btn btn-sm btn-primary" title="View Banner">
+                                  <button data-bs-toggle="modal" data-bs-target="#viewBanner{{$category->id}}" class="btn btn-sm btn-primary" title="View Banner">
                                       <i class="bi bi-eye"></i>
                                   </button>
-                                  <button data-bs-toggle="modal" data-bs-target="#editBanner{{$banner->id}}" class="btn btn-sm btn-success" title="Edit Banner">
+                                  <button data-bs-toggle="modal" data-bs-target="#editBanner{{$category->id}}" class="btn btn-sm btn-success" title="Edit Banner">
                                       <i class="bi bi-pen"></i>
                                   </button>
-                                  <button data-bs-toggle="modal" data-bs-target="#deleteBanner{{$banner->id}}" class="btn btn-sm btn-danger" title="Remove Banner">
+                                  <button data-bs-toggle="modal" data-bs-target="#deleteBanner{{$category->id}}" class="btn btn-sm btn-danger" title="Remove Banner">
                                       <i class="bi bi-trash"></i>
                                   </button>
                               </td>
                           </tr>
                           {{-- View Banner Modal --}}
-                          <div class="modal fade" id="viewBanner{{$banner->id}}" tabindex="-1" data-bs-backdrop="false">
+                          <div class="modal fade" id="viewBanner{{$category->id}}" tabindex="-1" data-bs-backdrop="false">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-body">
                                       <div class="row mb-3">
-                                          <img src="{{asset($banner->image)}}" alt="Profile" class="bannerViewImage">
                                           <div class="text-center">
-                                              <h5>{{$banner->title}}</h5>
+                                              <h5>Title: {{$category->title}}</h5>
+                                              <h5>Title(Arabic): {{$category->title_ar}}</h5>
                                           </div>
                                       </div>
                                   </div>
@@ -69,29 +69,25 @@
                           </div>
                           {{-- View Banner Modal End --}}
                           {{-- Edit Banner Modal --}}
-                          <div class="modal fade" id="editBanner{{$banner->id}}" tabindex="-1" data-bs-backdrop="false">
+                          <div class="modal fade" id="editBanner{{$category->id}}" tabindex="-1" data-bs-backdrop="false">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-body">
                                     <!-- Edit Banner Form -->
-                                    <form class="row needs-validation" novalidate method="POST" action="{{route('edit-banner')}}" enctype="multipart/form-data">
+                                    <form class="row needs-validation" novalidate method="POST" action="{{route('edit-category')}}" enctype="multipart/form-data">
                                       @csrf
-                                      <input type="hidden" name="id" value="{{$banner->id}}">
-                                      <div class="text-center mb-3 mt-5">
-                                          <div class="col-md-12">
-                                            <img class="editProfileImagePreview" src="{{asset($banner->image)}}" alt="banner" id="editProfileImagePreview{{$banner->id}}">
-                                            <div class="pt-2">
-                                              <button type="button" onclick="triggerUpload({{$banner->id}})" class="btn btn-primary btn-sm px-3" title="Upload new profile image"><i class="bi bi-upload"></i></button>
-                                            </div>
-                                            <input type="file" name="banner" id="editProfileImageUpload{{$banner->id}}" class="d-none" accept="image/*" onchange="showPreview(event,{{$banner->id}});">
-                                          </div>
-                                      </div>
+                                      <input type="hidden" name="id" value="{{$category->id}}">
                                       <div class="row mb-3">
                                         <div class="col-md-12">
                                           <div class="form-floating">
-                                            <input value="{{$banner->title}}" type="text" name="title" class="form-control" id="floatingFname{{$banner->id}}" placeholder="Rati" required>
-                                            <label for="floatingFname{{$banner->id}}">Title</label>
+                                            <input value="{{$category->title}}" type="text" name="title" class="form-control" id="floatingFname{{$category->id}}" placeholder="Rati" required>
+                                            <label for="floatingFname{{$category->id}}">Title</label>
                                             <div class="invalid-feedback">Please enter Title.</div>
+                                          </div>
+                                          <div class="form-floating mt-3">
+                                            <input value="{{$category->title_ar}}" type="text" name="title_ar" class="form-control" id="floatingFname{{$category->id}}" placeholder="Rati" required>
+                                            <label for="floatingFname{{$category->id}}">Title(Arabic)</label>
+                                            <div class="invalid-feedback">Please enter arabic Title.</div>
                                           </div>
                                         </div>
                                       </div>
@@ -108,18 +104,18 @@
                           </div>
                           {{-- Edit Banner Modal End --}}
                           {{-- Delete Banner Modal --}}
-                          <div class="modal fade" id="deleteBanner{{$banner->id}}" tabindex="-1" data-bs-backdrop="false">
+                          <div class="modal fade" id="deleteBanner{{$category->id}}" tabindex="-1" data-bs-backdrop="false">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-body">
                                     <!-- Delete Banner Form -->
-                                    <form class="row needs-validation" novalidate method="POST" action="{{route('delete-banner')}}" enctype="multipart/form-data">
+                                    <form class="row needs-validation" novalidate method="POST" action="{{route('delete-category')}}" enctype="multipart/form-data">
                                       @csrf
-                                      <input type="hidden" name="id" value="{{$banner->id}}">
+                                      <input type="hidden" name="id" value="{{$category->id}}">
                                       <div class="row mb-3">
-                                        <img src="{{asset($banner->image)}}" alt="Profile" class="profileViewImage">
                                         <div class="text-center">
-                                          <h5>{{$banner->title}} </h5>
+                                          <h5>{{$category->title}} </h5>
+                                          <h5>{{$category->title_ar}} </h5>
                                         </div>
                                       </div>
                                       <div class="text-center mt-3">
@@ -147,7 +143,7 @@
                         </a>
                       </div>
                     @endif
-              {{$banners->links()}}
+              {{$categories->links()}}
               <!-- End All Employee Table -->
 
             </div>
@@ -156,18 +152,5 @@
     </section>
   </main>
   <!-- End #main -->
-  <script>
-    function triggerUpload(id) {
-        let profileImageUpload = document.getElementById('editProfileImageUpload'+id+'');
-        profileImageUpload.click();
-    }
-    function showPreview(event,elementid) {
-        if(event.target.files.length > 0) {
-            var src = URL.createObjectURL(event.target.files[0]);
-            var preview = document.getElementById('editProfileImagePreview'+elementid+'');
-            preview.src = src;
-        }
-    }
-  </script>
 
 <x-admin-footer/>
