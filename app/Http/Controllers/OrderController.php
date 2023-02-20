@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -31,11 +33,22 @@ class OrderController extends Controller
         $user_id = $request->user_id;
         $user_address_id = $request->user_address_id;
         $product_id = $request->product_id;
-        $nutrition_id = $request->nutrition_id;
-        $nutrition_value_id = $request->nutrition_value_id;
+        //$nutrition_id = $request->nutrition_id;
+        //$nutrition_value_id = $request->nutrition_value_id;
         $quantity = $request->quantity;
         $price = $request->price;
         $payment_method = $request->payment_method;
+        $attributes = DB::table('nutritional_items')->get();
+        $attribute_array = [];
+        $attribute_value_array = [];
+        foreach($attributes as $attribute) {
+            $attribute_name = $attribute->nutrition;
+            $attribute_value = $attribute_name.'Value';
+            if(isset($request->$attribute_name) != null) {
+                array_push($attribute_array,$attribute->nutrition);
+                array_push($attribute_value_array,$request->$attribute_value);
+            }
+        }
         Order::updateOrCreate(
             [
                 'order_id' => $order_id,
@@ -46,8 +59,8 @@ class OrderController extends Controller
                 'user_id' => $user_id,
                 'user_address_id' => $user_address_id,
                 'product_id' => $product_id,
-                'nutrition_id' => $nutrition_id,
-                'nutrition_value_id' => $nutrition_value_id,
+                'nutrition_id' => json_encode($attribute_array),
+                'nutrition_value_id' => json_encode($attribute_value_array),
                 'quantity' => $quantity,
                 'price' => $price,
                 'payment_method' => $payment_method,

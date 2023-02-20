@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                      <select name="user_id" class="form-control" id="floatingFname" placeholder="price" required>
+                      <select name="user_id" class="form-control" id="floatingUser" placeholder="price" required>
                         @php
                           $users = \App\Models\User::get();
                         @endphp
@@ -49,69 +49,39 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                      <select name="user_id" class="form-control" id="floatingFname" placeholder="price" required>
+                      <select name="product_id" class="form-control" id="floatingProduct" required>
                         @php
-                          $user_address = \Illuminate\Support\Facades\DB::table('user_address')->get();
+                          $products = \App\Models\Product::get();
                         @endphp
-                        <option value="">Select user</option>
-                        @foreach($users as $user)
-                          <option value="{{$user->id}}">
-                            {{$user->fname}} ({{$user->lname}})
+                        <option value="">Select Product</option>
+                        @foreach($products as $product)
+                          <option value="{{$product->id}}">
+                            {{$product->product_name}} ({{$product->product_name_ar}})
                           </option>
                         @endforeach
                       </select>
-                      <div class="invalid-feedback">Please Select user.</div>
+                      <div class="invalid-feedback">Please Select product.</div>
                     </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" name="meals" class="form-control" id="floatingFname" placeholder="Meals" required>
-                    <label for="floatingFname">Meals</label>
-                    <div class="invalid-feedback">Please Enter Meals.</div>
+                    <input type="text" name="quantity" class="form-control" id="floatingQuantity" placeholder="Quantity" required>
+                    <label for="floatingQuantity">Quantity</label>
+                    <div class="invalid-feedback">Please Enter quantity.</div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" name="snacks" class="form-control" id="floatingFname" placeholder="snacks" required>
-                    <label for="floatingFname">Snacks</label>
-                    <div class="invalid-feedback">Please Enter Snacks.</div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="text" name="price" class="form-control" id="floatingFname" placeholder="price" required>
-                    <label for="floatingFname">Price</label>
+                    <input type="text" name="price" class="form-control" id="floatingPrice" placeholder="Price" required>
+                    <label for="floatingPrice">Price</label>
                     <div class="invalid-feedback">Please Enter Price.</div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <select name="category_id" class="form-control" id="floatingFname" placeholder="price" required>
-                      @php
-                        $categories = \App\Models\Category::get();
-                      @endphp
-                      <option value="">Select category</option>
-                      @foreach($categories as $category)
-                        <option value="{{$category->id}}">
-                          {{$category->title}} ({{$category->title_ar}})
-                        </option>
-                      @endforeach
-                    </select>
-                    <div class="invalid-feedback">Please Select category.</div>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <textarea name="description" class="form-control" id="floatingFname" required></textarea>
-                    <label for="floatingFname">Description</label>
-                    <div class="invalid-feedback">Please Enter description.</div>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <textarea name="description_ar" class="form-control" id="floatingFname" required></textarea>
-                    <label for="floatingFname">Description(Arabic)</label>
-                    <div class="invalid-feedback">Please Enter description(Arabic).</div>
+                    <input type="text" name="payment_method" class="form-control" id="floatingPaymentMethod" placeholder="Payment Method" required>
+                    <label for="floatingPaymentMethod">Payment Method</label>
+                    <div class="invalid-feedback">Please Select Payment Method.</div>
                   </div>
                 </div>
                 <div class="col-md-12">

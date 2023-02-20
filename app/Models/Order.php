@@ -20,5 +20,5 @@ class Order extends Model
         'payment_method',
         'dated'
     ];
-    public $timstamps = false;
+    public $timestamps = false;
 }
