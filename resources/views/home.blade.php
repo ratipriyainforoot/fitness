@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>InfoRoot Employee Portal</title>
+  <title>Fitness Way Employee Portal</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <!-- Google Fonts -->
@@ -39,7 +39,7 @@
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logoo d-flex align-items-center w-auto">
                   <img src="assets/img/inforoot.png" alt="">
-                  <span class="d-none d-lg-block">InfoRoot Admin</span>
+                  <span class="d-none d-lg-block">inforoot Admin</span>
                 </a>
               </div><!-- End Logo -->
 

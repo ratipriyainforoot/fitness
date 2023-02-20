@@ -4,7 +4,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('adminDashboard')}}" class="logoo d-flex align-items-center">
         <img src="assets/img/inforoot.png" alt="">
-        <span class="d-none d-lg-block">InfoRoot</span>
+        <span class="d-none d-lg-block">Fitness Way</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -174,13 +174,13 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/inforoot.png" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">InfoRoot</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">Fitness Way</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>InfoRoot Admin</h6>
-              <span>Attendance Dashboard</span>
+              <h6>Fitness Way Admin</h6>
+              <span>Admin Dashboard</span>
             </li>
             <li>
               <hr class="dropdown-divider">

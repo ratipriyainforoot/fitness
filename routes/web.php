@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +45,13 @@ Route::post('/delete-category',[CategoryController::class,'deleteCategory'])->na
 Route::get('/all-products',[ProductController::class,'allProducts'])->name('all-products');
 Route::get('/add-product',[ProductController::class,'addProduct'])->name('add-product');
 Route::post('/add-product-store',[ProductController::class,'addProductStore'])->name('add-product-store');
+
+//Order route
+Route::get('/all-orders',[OrderController::class,'allOrders'])->name('all-orders');
+Route::get('/add-orders',[OrderController::class,'addOrders'])->name('add-orders');
+Route::post('/add-order-store',[OrderController::class,'addOrderStore'])->name('add-order-store');
+
+//users Route
+Route::get('/all-users',[UserController::class,'allUsers'])->name('all-users');
+Route::post('/edit-user',[UserController::class,'editUser'])->name('edit-user');
+Route::post('/delete-user',[UserController::class,'deleteUser'])->name('delete-user');

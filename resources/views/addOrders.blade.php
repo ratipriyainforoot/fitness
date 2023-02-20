@@ -7,11 +7,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Add Product</h1>
+      <h1>Add Orders</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-          <li class="breadcrumb-item active">Add Product</li>
+          <li class="breadcrumb-item active">Add Orders</li>
         </ol>
       </nav>
     </div>
@@ -21,31 +21,46 @@
         <div class="card p-4">
             <div class="card-body">
 
-              <!-- Add Product Form -->
-              <form class="row g-3 needs-validation" novalidate method="POST" action="{{route('add-product-store')}}" enctype="multipart/form-data">
+              <!-- Add Orders Form -->
+              <form class="row g-3 needs-validation" novalidate method="POST" action="{{route('add-order-store')}}" enctype="multipart/form-data">
                 @csrf
-                <div class="text-center mb-3 mt-5">
-                    <div class="col-md-12">
-                      <img src="assets/img/banner.jpg" alt="Profile" id="bannerImagePreview">
-                      <div class="pt-2">
-                        <button type="button" onclick="triggerUpload()" class="btn btn-primary btn-sm px-3" title="Upload product banner"><i class="bi bi-upload"></i></button>
-                      </div>
-                    <input type="file" name="banner" id="profileImageUpload" class="d-none" accept="image/*" onchange="showPreview(event);" required>
-                    <div class="invalid-feedback">Please upload product banner.</div>
-                    </div>
-                  </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" name="product_name" class="form-control" id="floatingFname" placeholder="Product Name" required>
-                      <label for="floatingFname">Product Name</label>
-                      <div class="invalid-feedback">Please Enter Product Name.</div>
+                      <input type="text" name="order_id" class="form-control" id="floatingOrderId" placeholder="Product Name" required>
+                      <label for="floatingOrderId">Order Id</label>
+                      <div class="invalid-feedback">Please Enter Order Id.</div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" name="product_name_ar" class="form-control" id="floatingFname" placeholder="Product Name(Arabic)" required>
-                      <label for="floatingFname">Product Name(Arabic)</label>
-                      <div class="invalid-feedback">Please enter arabic Product Name.</div>
+                      <select name="user_id" class="form-control" id="floatingFname" placeholder="price" required>
+                        @php
+                          $users = \App\Models\User::get();
+                        @endphp
+                        <option value="">Select user</option>
+                        @foreach($users as $user)
+                          <option value="{{$user->id}}">
+                            {{$user->fname}} ({{$user->lname}})
+                          </option>
+                        @endforeach
+                      </select>
+                      <div class="invalid-feedback">Please Select user.</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                      <select name="user_id" class="form-control" id="floatingFname" placeholder="price" required>
+                        @php
+                          $user_address = \Illuminate\Support\Facades\DB::table('user_address')->get();
+                        @endphp
+                        <option value="">Select user</option>
+                        @foreach($users as $user)
+                          <option value="{{$user->id}}">
+                            {{$user->fname}} ({{$user->lname}})
+                          </option>
+                        @endforeach
+                      </select>
+                      <div class="invalid-feedback">Please Select user.</div>
                     </div>
                 </div>
                 <div class="col-md-6">
