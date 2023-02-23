@@ -102,6 +102,25 @@
       <!-- End Orders Nav -->
 
       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#projects-coupon" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-percent"></i><span>Coupons</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="projects-coupon" class="nav-content collapse " data-bs-parent="#projects-coupon">
+          <li>
+            <a href="{{route('all-coupon')}}">
+              <i class="bi bi-circle"></i><span>Coupon Codes</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('add-coupon')}}">
+              <i class="bi bi-circle"></i><span>Add Coupon Code</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Coupon Nav -->
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('logout')}}">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>

@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CouponController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,10 @@ Route::post('/add-order-store',[OrderController::class,'addOrderStore'])->name('
 Route::get('/all-users',[UserController::class,'allUsers'])->name('all-users');
 Route::post('/edit-user',[UserController::class,'editUser'])->name('edit-user');
 Route::post('/delete-user',[UserController::class,'deleteUser'])->name('delete-user');
+
+//Coupon Route
+Route::get('/all-coupon',[CouponController::class,'allCoupon'])->name('all-coupon');
+Route::get('/add-coupon',[CouponController::class,'addCoupon'])->name('add-coupon');
+Route::post('/add-coupon-store',[CouponController::class,'addCouponStore'])->name('add-coupon-store');
+Route::post('/edit-coupon',[CouponController::class,'editCoupon'])->name('edit-coupon');
+Route::post('/delete-coupon',[CouponController::class,'deleteCoupon'])->name('delete-coupon');
