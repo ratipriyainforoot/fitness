@@ -8,6 +8,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\StateController;
+use App\Http\Controllers\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +66,24 @@ Route::get('/add-coupon',[CouponController::class,'addCoupon'])->name('add-coupo
 Route::post('/add-coupon-store',[CouponController::class,'addCouponStore'])->name('add-coupon-store');
 Route::post('/edit-coupon',[CouponController::class,'editCoupon'])->name('edit-coupon');
 Route::post('/delete-coupon',[CouponController::class,'deleteCoupon'])->name('delete-coupon');
+
+//Country Route
+Route::get('/all-country',[CountryController::class,'allCountry'])->name('all-country');
+Route::get('/add-country',[CountryController::class,'addCountry'])->name('add-country');
+Route::post('/add-country-store',[CountryController::class,'addCountryStore'])->name('add-country-store');
+Route::post('/edit-country',[CountryController::class,'editCountry'])->name('edit-country');
+Route::post('/delete-country',[CountryController::class,'deleteCountry'])->name('delete-country');
+
+//State Route
+Route::get('/all-state',[StateController::class,'allState'])->name('all-state');
+Route::get('/add-state',[StateController::class,'addState'])->name('add-state');
+Route::post('/add-state-store',[StateController::class,'addStateStore'])->name('add-state-store');
+Route::post('/edit-state',[StateController::class,'editState'])->name('edit-state');
+Route::post('/delete-state',[StateController::class,'deleteState'])->name('delete-state');
+
+//City Route
+Route::get('/all-city',[CityController::class,'allCity'])->name('all-city');
+Route::get('/add-city',[CityController::class,'addCity'])->name('add-city');
+Route::post('/add-city-store',[CityController::class,'addCityStore'])->name('add-city-store');
+Route::post('/edit-city',[CityController::class,'editCity'])->name('edit-city');
+Route::post('/delete-city',[CityController::class,'deleteCity'])->name('delete-city');

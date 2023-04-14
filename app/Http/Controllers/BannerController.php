@@ -32,6 +32,23 @@ class BannerController extends Controller
         );
         return redirect()->route('all-banner');
     }
+    
+    public function BannerList(Request $request) {
+        $banners = Banner::all();
+        $banner_details = [];
+        foreach($banners as $banner) {
+            $banner_details[] = [
+                'banner_id' => $banner->id,
+                'banner_title' => $banner->title,
+                'banner' => 'https://inforootsolution.com/fitnessway/public/'.$banner->image
+            ];
+        }
+        return response()->json([
+            'code' => 1,
+            'message' => 'banner list available',
+            'data' => $banner_details
+        ]);
+    }
 
     public function allBanner() {
         if(session()->has('admin')) {

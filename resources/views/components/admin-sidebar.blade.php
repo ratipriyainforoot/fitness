@@ -121,6 +121,63 @@
       <!-- End Coupon Nav -->
 
       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#country-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Country</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="country-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('all-country')}}">
+              <i class="bi bi-circle"></i><span>All Country</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('add-country')}}">
+              <i class="bi bi-circle"></i><span>Add Country</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Country Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#State-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>State</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="State-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('all-state')}}">
+              <i class="bi bi-circle"></i><span>All State</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('add-state')}}">
+              <i class="bi bi-circle"></i><span>Add State</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Country Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#City-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>City</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="City-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('all-city')}}">
+              <i class="bi bi-circle"></i><span>All City</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('add-city')}}">
+              <i class="bi bi-circle"></i><span>Add City</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End City Nav -->
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('logout')}}">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
